@@ -4,8 +4,8 @@ whoami=`whoami`
 isSudoer=`id $whoami |grep sudo`
 
 username="gveda"
-password="\$5\$1\$hyT6IgPGEmYaqqtaDxLy50OKEXdc4uzC8SwQ5Ji8rO5"
-# openssl passwd -5 -salt '1'
+password="\$6\$1\$/oXqVUZ0eqjR.qgLeIx5sHnDVNp13xMQQGR4D.8pfzZlIDBWP.rDeSRWECJ.vNbOAm7kVFU14cm62CS05Q3Dm/"
+# openssl passwd -6 -salt '1'
 gvedaUser=`cut -d: -f1 /etc/passwd |grep $username`
 
 docker=`which docker`
@@ -20,6 +20,7 @@ isInstallDocker="Y"
 
 function installDocker() {
     echo -e "\e[1;33;40mReady to install Docker... \e[0m"
+    # https://docs.docker.com/engine/install/ubuntu/
     echo ""
 
     for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
